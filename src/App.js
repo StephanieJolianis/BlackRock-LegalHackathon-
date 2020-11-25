@@ -5,6 +5,7 @@ import DetalleAlerta from "./Components/DetalleAlerta";
 import DetalleMes from "./Components/DetalleMes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"; 
 
+
 function App() {
   return (
     <Router>
