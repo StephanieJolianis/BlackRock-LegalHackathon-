@@ -1,4 +1,3 @@
-import react from "react";
 import dataBlackRock from "../Data/datablackrock.json";
 import { Link } from "react-router-dom";
 
@@ -9,8 +8,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const DetalleMes = () => {
 
     const data = dataBlackRock;
-    const propscuenta = 305219;
-    const propsfechaoperacion = "2019-10";
+
+    const propscuenta = 305235;
+    const propsfechaoperacion= "2020-10";
+
 
 
     //-------------------FUNCIÓN MANEJO MAYÚSCULAS STRINGS--------------------------------->
@@ -163,6 +164,34 @@ const DetalleMes = () => {
 
         <div>
         <p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
+            <Link to= "/">
+                <button>Logout</button>
+            </Link>
+    <h1>BlackRock</h1>
+    </div>
+    <div className="contentDetailMonth">
+        <div><h3>NIC:</h3><p>{resultFilter[0].nic}</p></div>
+        <div><h3>Cuenta:</h3> <p>{resultFilter[0].cuenta}</p></div>
+        <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
+        <div><h3>Objeto:</h3><p>{mayusculas(resultFilter[0].objetocuenta)}</p></div>
+        <div><h3>Antigüedad:</h3><p>{antiguedad(resultFilter)}</p></div>
+        <div><h3>Monto Declarado:</h3><p>$ {resultFilter[0].montodeclarado}</p></div>
+        <div><h3>Límite:</h3></div>
+    </div>
+        <h2>Historial</h2>
+        <table className="history">
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Operación</th>
+                <th>Monto</th>
+            </tr>
+            </thead>
+            <tbody>
+            {dataTable}
+            </tbody>
+        </table>
+    <div><p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
         <p>Monto total Retiros: $ {resultRetiro(resultFilter)}</p>
         </div>
         
