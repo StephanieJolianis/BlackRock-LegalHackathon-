@@ -1,12 +1,11 @@
-import react from "react";
 import dataBlackRock from "../Data/datablackrock.json";
 import { Link } from "react-router-dom";
 
 const DetalleMes = () => {
     
     const data = dataBlackRock;
-    const propscuenta = 305219;
-    const propsfechaoperacion= "2019-10";
+    const propscuenta = 305235;
+    const propsfechaoperacion= "2020-10";
 
 
 //-------------------FUNCIÓN MANEJO MAYÚSCULAS STRINGS--------------------------------->
@@ -87,6 +86,9 @@ const DetalleMes = () => {
         <div>
             <Link to= "/detallealerta">
                 <button>Regresar</button>
+            </Link>
+            <Link to= "/">
+                <button>Logout</button>
             </Link>
     <h1>BlackRock</h1>
     </div>
