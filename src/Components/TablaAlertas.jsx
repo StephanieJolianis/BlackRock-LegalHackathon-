@@ -19,7 +19,7 @@ const TablaAlertas = () => {
                 <td>55198</td>
                 <td>358347</td>
                 <td>Monto Rebasado</td>
-                <td><Link to= "/detallemes">
+                <td><Link to= "/detallealerta">
                 <button>+</button>
                     </Link></td>
             </tr>
@@ -28,7 +28,7 @@ const TablaAlertas = () => {
                 <td>55203</td>
                 <td>375672</td>
                 <td>Monto Rebasado</td>
-                <td><Link to= "/detallemes">
+                <td><Link to= "/detallealerta">
                 <button>+</button>
                     </Link></td>
             </tr>

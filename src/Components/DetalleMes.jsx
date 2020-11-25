@@ -28,8 +28,8 @@ const DetalleMes = () => {
     //--------------------FUNCIÓN FILTER (CUENTA-MES)-------------------------------------->
     const functionFilter = (month) => {
         let compare = false;
-        if (month.cuenta == propscuenta) {
-            if (month.fechaoperacion.substring(0, 7) == propsfechaoperacion) {
+        if (month.cuenta === propscuenta) {
+            if (month.fechaoperacion.substring(0, 7) === propsfechaoperacion) {
                 compare = true;
             }
         }
@@ -67,7 +67,7 @@ const DetalleMes = () => {
     const resultDeposito = (algo) => {
         let acumm = 0;
         for (let i = 0; i < algo.length; i++) {
-            if (algo[i].tipooperacion == "DEPOSITO") {
+            if (algo[i].tipooperacion === "DEPOSITO") {
                 acumm = acumm + parseInt(algo[i].monto);
             }
 
@@ -79,7 +79,7 @@ const DetalleMes = () => {
     const resultRetiro = (algo) => {
         let acumm = 0;
         for (let i = 0; i < algo.length; i++) {
-            if (algo[i].tipooperacion == "Retiro") {
+            if (algo[i].tipooperacion === "Retiro") {
                 acumm = acumm + parseInt(algo[i].monto);
             }
         }
@@ -132,6 +132,9 @@ const DetalleMes = () => {
         <div className={classes.headerDetailMonth}>
             <Link to= "/detallealerta">
                 <button>Regresar</button>
+            </Link>
+            <Link to= "/">
+                <button>Logout</button>
             </Link>
         <h1>BlackRock</h1>
         </div>
