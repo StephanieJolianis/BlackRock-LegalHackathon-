@@ -31,6 +31,27 @@ const DetalleMes = () => {
         )
     })
 
+    const antiguedad = (algo) => {
+        const fechaContrato = new Date (algo[0].fechafirmacontrato).getTime();
+        console.log("fecha contrato" ,fechaContrato)
+        const fechaActual = new Date (algo[0].fechaoperacion).getTime();
+        console.log("fecha actual" ,fechaActual);
+        const diff = fechaActual - fechaContrato;
+
+        return diff/(1000*60*60*24*30);
+    }
+
+    const resultDeposito = (algo) =>{
+    let acumm = 0;
+    for (let i = 0; i<algo.length; i++){
+        if(algo[i].tipooperacion == "DEPOSITO"){
+            acumm = acumm + parseInt(algo[i].monto);
+        }
+    
+        }
+        return acumm;
+    }
+
 
     return( <div>
         <div>
@@ -38,13 +59,13 @@ const DetalleMes = () => {
     <h1>BlackRock</h1>
     </div>
     <div className="contentDetailMonth">
-        <h3>NIC:</h3> 
-        <h3>Cuenta:</h3>
-        <h3>Razón Social:</h3>
-        <h3>Objeto:</h3>
-        <h3>Antigüedad:</h3>
-        <h3>Monto Declarado:</h3>
-        <h3>Límite:</h3>
+        <div><h3>NIC:</h3><p>{resultFilter[0].nic}</p></div>
+        <div><h3>Cuenta:</h3> <p>{resultFilter[0].cuenta}</p></div>
+        <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
+        <div><h3>Objeto:</h3><p>{resultFilter[0].objetocuenta}</p></div>
+        <div><h3>Antigüedad:</h3><p>{antiguedad(resultFilter)}</p></div>
+        <div><h3>Monto Declarado:</h3><p>{resultFilter[0].montodeclarado}</p></div>
+        <div><h3>Límite:</h3></div>
     </div>
         <h2>Historial</h2>
         <table className="history">
@@ -59,7 +80,7 @@ const DetalleMes = () => {
             {dataTable}
             </tbody>
         </table>
-    <div><p>Monto total depositos:</p>
+    <div><p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
         <p>Monto total Retiros:</p>
         </div>
     </div>
