@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 //fin import material
 
-import data from '../Data/BlackRockII.json';
+import data from '../Data/data.json';
 
 
 const DetalleMes = () => {

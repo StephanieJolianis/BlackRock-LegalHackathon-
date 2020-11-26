@@ -1,6 +1,6 @@
 import Filtros from "./Filtros";
 import TablaAlertas from "./TablaAlertas";
-import Gráfica from "./Gráfica";
+import ChartRock from "./ChartRock";
 import { Link } from "react-router-dom";
 const Main = () => {
     return( 
@@ -14,7 +14,7 @@ const Main = () => {
             <p>Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
             <Filtros/>
             <TablaAlertas/>
-            <Gráfica/>
+            <ChartRock/>
             </div>
     );
 }
