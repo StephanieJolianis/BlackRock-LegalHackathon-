@@ -2,7 +2,7 @@ const ModalAlerta = (props) => {
 
     const validateAlert = (algo) => {
         let result = ""
-        if(algo.alert == true){
+        if(algo.alert === true){
             result= "Alerta Real"
         } else {
             result = "Falso Positivo"
