@@ -1,8 +1,12 @@
+//inicio import material
+import { makeStyles } from '@material-ui/core/styles';
+//fin import material
+
 const ModalAlerta = (props) => {
 
     const validateAlert = (algo) => {
         let result = ""
-        if(algo.alert == true){
+        if(algo.alert === true){
             result= "Alerta Real"
         } else {
             result = "Falso Positivo"
@@ -24,12 +28,23 @@ const ModalAlerta = (props) => {
                     
             </div>
         </div>);
-    
+
+//inicio objeto css
+const useStyle = makeStyles({
+    alertModal: {
+        fontFamily:"Roboto",
+    },
+})
+//fin objeto css
+
+//inicio hooks de estilos
+const classes = useStyle();
+//fin hooks de estilos
+
         return(
-        <div>
-            {DivModal}
-        </div>
+            <div className={classes.alertModal}>
+                {DivModal}
+            </div>
     )}
-    
     
     export default ModalAlerta;
