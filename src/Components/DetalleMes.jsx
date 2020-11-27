@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import dataAlerta from "../Data/alertas.json";
 import { useParams } from "react-router-dom";
 
+//import data from '../Data/data.json';
+
+
 const DetalleMes = () => {
     const { id } = useParams();
     const data = dataBlackRock;
