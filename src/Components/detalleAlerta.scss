@@ -10,6 +10,39 @@ $content-font : Roboto;
     padding: 0;
     
 }
+
+.alertDetailHeader {   
+    
+    font-family: $content-font;
+    height: 100px;
+
+    .headerButtons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px;
+    }
+
+
+
+    .blackrockLogo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .alarmaIMG {
+        height: 30px;
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+    
+}
+
 .contentDetailAlert {
     background-color: $yellow;
     font-family: $content-font;
@@ -131,8 +164,7 @@ th, td {
       }
 
       .buttonDetails {
-          border: none;
-          background-color: $white;
+          border: none;          
           margin: auto; 
           height: 100%;
           font-weight: 500;
@@ -152,6 +184,8 @@ th, td {
       input {
           height: 100px;
           font-family: $content-font;
+          width: 90%;
+          margin: 0 auto;
       }
 
       .evaluationButtons {

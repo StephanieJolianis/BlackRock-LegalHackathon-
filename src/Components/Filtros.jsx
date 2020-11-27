@@ -41,8 +41,6 @@ const Filtros = (props) => {
                     <option value="2020" defaultValue selected>2020</option>
                 </select>
             </div>
-<<<<<<< HEAD
-=======
 
             <div className="divFiltro3">
                 <select onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})} name="objetocuenta">
@@ -60,7 +58,6 @@ const Filtros = (props) => {
                 </div>
             </div>
         </div>
->>>>>>> 9b8011260a24b0ffdb3e49db866aa408ea7855f7
     );
 }
 
