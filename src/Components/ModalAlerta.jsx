@@ -1,3 +1,6 @@
+
+import './modalAlerta.scss';
+
 //inicio import material
 import { makeStyles } from '@material-ui/core/styles';
 //fin import material
@@ -20,6 +23,7 @@ localStorage.setItem("evaluaciones", JSON.stringify(actualiza));
 }
 
 
+
 const ModalAlerta = (props) => {
 
     const validateAlert = (algo) => {
@@ -35,6 +39,14 @@ const ModalAlerta = (props) => {
     const DivModal = props.show && ( 
         <div className="overlay">
             <div className="popup">
+
+            <button className = 'closeButton'
+            onClick={()=> props.close(false)}>x</button>
+                <p className = 'modalText' >El status de la alerta: </p>
+                <p className = 'modalText' >será actualizado a:</p>
+                <h1>{validateAlert(props)}</h1>
+                    <button className = 'acceptButton'
+                    onClick={()=> {
             <button onClick={()=> props.close(false)}>x</button>
                 <p>El status de la alerta: {props.idAlerta}</p>
                 <p>será actualizado a:</p>

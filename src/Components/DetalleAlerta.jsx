@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import dataAlerta from "../Data/alertas.json";
 import ModalLimite from "./ModalLimite";
 import ModalAlerta from "./ModalAlerta";
+import './detalleAlerta.scss';
 
 const calcularDias = (algo) => {
     let anio = algo.aniooperacion;
@@ -82,6 +83,17 @@ const DetalleAlerta = () => {
     <h1>BlackRock</h1>
     </div>
     <div className="contentDetailAlert">
+
+        <div className='textLine' ><h3>ID Alerta:</h3> <p>55198</p></div>
+        <div className='textLine'><h3>NIC: </h3> <p>5454554</p></div>
+        <div className='textLine'><h3>Razón Social: </h3><p>xxxxxxxxxxxx</p></div>
+        <div className='textLine'><h3>Descripción: </h3><p>Monto Rebasado</p></div>
+    </div>
+
+    <div className='regresiveCount'>
+    <h3 >Esta alerta expira en</h3><h1>26 días</h1>
+    </div>
+
         <div><h3>ID Alerta:</h3><p>{id}</p></div>
         <div><h3>NIC</h3> <p>{filtroAlerta[0].nic}</p></div>
         <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
@@ -108,10 +120,18 @@ const DetalleAlerta = () => {
                 </tr>
                 <tr>
                     <th>Mes/Año</th>
+                    <td className = 'fila'> <p> Octubre 2020</p>
+                    <Link to= "/detallemes">
+                <button className = 'buttonDetails' >+</button>
+                    </Link>
+                    </td>
+                    
+
                     <td>{filtroAlerta[0].mesoperacion} / {filtroAlerta[0].aniooperacion}</td>
                     <td><Link to= {"/alerta/" + id + "/detallemes"}>
                 <button>+</button>
                     </Link></td>
+
                 </tr>
                 <tr>
                     <th>Monto Declarado</th>
@@ -123,6 +143,20 @@ const DetalleAlerta = () => {
                 </tr>
                 <tr>
                     <th>Límite</th>
+
+                    <td className = 'fila' > <p> $200000</p><p>2x</p><button className = 'buttonLimite' onClick={() => setShowLimit(true)}>Editar</button></td>
+                    
+                    
+                </tr>
+            </tbody>
+        </table>
+    <div className = 'evaluationContainer' >
+        <input type="search" placeholder="Indica el análisis de la alerta"/>
+        <div className = 'evaluationButtons' >
+        <button className = 'alertaReal'  onClick={() =>{setShowAlert(true); setAlert(true);}}>Alerta Real</button>
+        <button className = 'falsoPositivo' onClick={() =>{setShowAlert(true); setAlert(false);}}>Falso Positivo</button>
+        </div>
+
                     <td>{formatCurrency(filtroAlerta[0].limiteMonto__1)}</td>
                     <td>{limit > 0 ? limit : filtroAlerta[0].limiteMonto}x</td>
                     {alertaValida(filtroAlerta[0]) ? <td></td> : <td><button onClick={() => setShowLimit(true)}>Editar</button></td>}
@@ -134,6 +168,7 @@ const DetalleAlerta = () => {
         <input type="search" placeholder="Indica el análisis de la alerta" onChange={(e)=> setAnalisis(e.target.value)}/>
         <button onClick={() =>{setShowAlert(true); setAlert(true);}}>Alerta Real</button>
         <button onClick={() =>{setShowAlert(true); setAlert(false);}}>Falso Positivo</button>
+ develop
         </div>
         )}
 

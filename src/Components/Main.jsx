@@ -1,6 +1,6 @@
 import Filtros from "./Filtros";
 import TablaAlertas from "./TablaAlertas";
-import Gráfica from "./Gráfica";
+import ChartRock from "./ChartRock";
 import { Link } from "react-router-dom";
 import { useReducer, useEffect, useState } from "react";
 // import logoApp from '../img/alerta.png';
@@ -69,7 +69,7 @@ const Main = () => {
             <p>Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
             <Filtros  cambioFiltros={setFiltros} />
             <TablaAlertas filtros={filtros}/>
-            <Gráfica/>
+            <ChartRock/>
             </div>
     );
 };
