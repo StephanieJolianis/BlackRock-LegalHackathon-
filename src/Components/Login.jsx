@@ -1,13 +1,34 @@
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+
+
 //inicio import material
 import { Box, Button, Grid, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 //fin import material
 
+
+
 const Login = () => {
+
+    let history = useHistory();
+    const [statusForm, setstatusForm] = useState(true);
 
     const handleInputChange = (e) => {
         localStorage.setItem("nombredeusuario", e.target.value);
+    }
+
+    const sendUser = (e) =>{
+        e.preventDefault();
+        let password = e.target.elements['password'].value;
+        if(password === "blackrock2020"){
+            history.push("/main");
+            return true;
+        }
+        setstatusForm(false);
+        console.log("estado",statusForm);
+        return false;
     }
 
     //inicio objeto css
@@ -46,7 +67,6 @@ const Login = () => {
     const classes = useStyle();
     //fin hooks de estilos
 
-
     return (
         <div>
             <Grid container>
@@ -65,25 +85,24 @@ const Login = () => {
                     </div>
                 </Grid>
                 <Grid item xs={12}>
-                    <form className={classes.bodyLogin} noValidate autoComplete="off">
+                    <form className={classes.bodyLogin} autoComplete="off" onSubmit={(e)=>sendUser(e)}>
                         <Box p={3}>
-                            <TextField size="medium" name="mail" type="email" placeholder="Nombre Usuario" onChange={handleInputChange} required />
+                            <TextField size="medium" name="mail" type="text" placeholder="Nombre Usuario" onChange={handleInputChange} required />
                         </Box>
                         <Box p={3}>
                             <TextField size="medium" name="password" placeholder="Password" type="password" required />
                         </Box>
                         <Box p={3}>
                             <div>
-                                <Link to="/main">
-                                    <Button className={classes.newcolor} float = "right">
+                                    <Button type="submit" className={classes.newcolor} float = "right">
                                         Iniciar Sesión
                                 </Button>
-                                </Link>
                             </div>
                         </Box>
                     </form>
                 </Grid>
             </Grid>
+            {!statusForm && (<div><p>Credenciales invalidas por favor verifique</p></div>)}
         </div>
     );
 };
