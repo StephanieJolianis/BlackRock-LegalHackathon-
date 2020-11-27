@@ -65,15 +65,9 @@ const Main = () => {
     <h1>BlackRock </h1>
         </div>
             <p>Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
-<<<<<<< HEAD
-            <Filtros/>
-            <TablaAlertas/>
-            <ChartRock/>
-=======
             <Filtros  cambioFiltros={setFiltros} />
             <TablaAlertas filtros={filtros}/>
-            <Gráfica/>
->>>>>>> 6aef989648bd4bec528a75ffa9e4379e0dc9aadd
+            <ChartRock/>
             </div>
     );
 }

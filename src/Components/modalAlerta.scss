@@ -1,0 +1,32 @@
+$black : #000000;
+$orange :#D4804C;
+$white: #FFFF;
+$content-font : Roboto;
+
+
+.modalText {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 13px;
+    color: $black;
+}
+
+
+.acceptButton {
+    font-family: $content-font;
+    background-color: $black;
+    color: $white;
+    border: $black solid 4px;
+    height: 40px;
+    width: 70px;
+}
+
+.closeButton {
+    position: relative;
+    left: 90px;
+    border: none;
+    background-color: $white;
+}
+

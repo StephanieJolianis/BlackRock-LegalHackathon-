@@ -1,0 +1,120 @@
+$black : #000000;
+$yellow : #FFCE00;
+$white: #FFFF;
+$content-font : Roboto;
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+.contentDetailAlert {
+    background-color: $yellow;
+    font-family: $content-font;
+    color: $black;
+    font-size: 14px;
+    padding: 15px;
+}
+
+.textLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height: 30px;
+    
+
+    h3 {
+        margin: auto 0;
+        padding: 0;
+    }
+    
+    p {
+        font-size: 12px;
+        margin: auto 5px;
+        padding: 0;
+
+        
+    }
+    
+}
+
+.regresiveCount {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: $black;
+    color: $white;
+    font-family: $content-font;
+    font-size: 15px;
+    height: 60px;
+    padding: 10px;
+
+    h3, h1 {
+        margin: auto 5px;
+    }
+
+}
+
+
+
+
+table {
+
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-spacing: 2px;
+    border-color: gray;
+    font-family: $content-font;
+    font-size: 12px;
+    margin: auto;
+
+    
+    
+
+
+}
+
+tr {
+    height: 40px;
+}
+
+th, td {
+    padding: 0.25rem;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+
+  td {
+      width: 200px;
+  }
+
+
+  .fila {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      height: 30px;
+      
+
+      
+
+      p {
+          margin: auto;
+
+      }
+
+      .buttonLimite {
+        margin: auto;
+        height: 20px;
+
+      }
+
+      .buttonDetails {
+        margin: auto;
+        height: 20px;
+        
+      }
+  }
+
+

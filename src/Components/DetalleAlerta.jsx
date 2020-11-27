@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ModalLimite from "./ModalLimite";
 import ModalAlerta from "./ModalAlerta";
+import './detalleAlerta.scss';
 
 const DetalleAlerta = () => {
     const [showLimit, setShowLimit] = useState(false);
@@ -20,13 +21,16 @@ const DetalleAlerta = () => {
     <h1>BlackRock</h1>
     </div>
     <div className="contentDetailAlert">
-        <div><h3>ID Alerta:</h3><p>55198</p></div>
-        <div><h3>NIC</h3> <p>5454554</p></div>
-        <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
-        <div><h3>Descripción:</h3><p>Monto Rebasado</p></div>
+        <div className='textLine' ><h3>ID Alerta:</h3> <p>55198</p></div>
+        <div className='textLine'><h3>NIC: </h3> <p>5454554</p></div>
+        <div className='textLine'><h3>Razón Social: </h3><p>xxxxxxxxxxxx</p></div>
+        <div className='textLine'><h3>Descripción: </h3><p>Monto Rebasado</p></div>
     </div>
-        <h3>Esta alerta expira en</h3>
-        <h1>26 días</h1>
+
+    <div className='regresiveCount'>
+    <h3 >Esta alerta expira en</h3><h1>26 días</h1>
+    </div>
+        
         <table className="detailAlert">
             <tbody>
                 <tr>
@@ -47,10 +51,12 @@ const DetalleAlerta = () => {
                 </tr>
                 <tr>
                     <th>Mes/Año</th>
-                    <td>Octubre 2020</td>
-                    <td><Link to= "/detallemes">
-                <button>+</button>
-                    </Link></td>
+                    <td className = 'fila'> <p> Octubre 2020</p>
+                    <Link to= "/detallemes">
+                <button className = 'buttonDetails' >+</button>
+                    </Link>
+                    </td>
+                    
                 </tr>
                 <tr>
                     <th>Monto Declarado</th>
@@ -62,9 +68,9 @@ const DetalleAlerta = () => {
                 </tr>
                 <tr>
                     <th>Límite</th>
-                    <td>$200000</td>
-                    <td>2x</td>
-                    <td><button onClick={() => setShowLimit(true)}>Editar</button></td>
+                    <td className = 'fila' >$200000<p>2x</p><button className = 'buttonLimite' onClick={() => setShowLimit(true)}>Editar</button></td>
+                    
+                    
                 </tr>
             </tbody>
         </table>
