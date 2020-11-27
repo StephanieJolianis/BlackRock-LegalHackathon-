@@ -5,6 +5,11 @@ import dataAlerta from "../Data/alertas.json";
 import ModalLimite from "./ModalLimite";
 import ModalAlerta from "./ModalAlerta";
 import './detalleAlerta.scss';
+import alertaLogo from '../img/alerta.png'
+import atras from '../img/atras.png'
+import salir from '../img/salir.png'
+
+
 
 const calcularDias = (algo) => {
     let anio = algo.aniooperacion;
@@ -79,20 +84,25 @@ const DetalleAlerta = () => {
     return( 
     <div>
         <div className="alertDetailHeader">
+            <div className = 'headerButtons' >
             <Link to= "/main">
-                <button>Regresar</button>
+                <img src= {atras} ></img>
             </Link>
             <Link to= "/">
-                <button>Logout</button>
+                <img src = {salir}  ></img>
             </Link>
+            </div>
+        <div className = 'blackrockLogo'>
+        <img className = 'alarmaIMG' src = {alertaLogo}></img>
         <h1>BlackRock</h1>
+        </div>
         </div>
         <div className="contentDetailAlert">
             <div className="contentDetailAlert">
-                <div><h3>ID Alerta:</h3><p>{id}</p></div>
-                <div><h3>NIC</h3> <p>{filtroAlerta[0].nic}</p></div>
-                <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
-                <div><h3>Descripción:</h3><p>{filtroAlerta[0].descripcionAlerta}</p></div>
+                <div className = 'textLine' ><h3>ID Alerta:</h3><p>{id}</p></div>
+                <div className = 'textLine' ><h3>NIC</h3> <p>{filtroAlerta[0].nic}</p></div>
+                <div className = 'textLine' ><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
+                <div className = 'textLine' ><h3>Descripción:</h3><p>{filtroAlerta[0].descripcionAlerta}</p></div>
             </div>
         </div>
                 {calcularDias(filtroAlerta[0])}
@@ -116,7 +126,7 @@ const DetalleAlerta = () => {
                         </tr>
                         <tr>
                             <th>Mes/Año</th>
-                            <td className = 'fila'>{filtroAlerta[0].mesoperacion} / {filtroAlerta[0].aniooperacion}
+                            <td className = 'fila'> <p> {filtroAlerta[0].mesoperacion} / {filtroAlerta[0].aniooperacion}</p>
                             <Link to= {"/alerta/" + id + "/detallemes"}>
                                 <button className = 'buttonDetails'>+</button>
                             </Link>
