@@ -50,10 +50,10 @@ const DetalleMes = () => {
     //--------------------CREACIÓN TABLA DINÁMICA-------------------------------------->
     const dataTable = resultFilter.map((item, idx) => {
         return (
-            <tr key={idx}>
-                <td>{item.fechaoperacion}</td>
-                <td>{mayusculas(item.tipooperacion)}</td>
-                <td> {formatCurrency(parseInt(item.monto))}</td>
+            <tr className="tr" key={idx}>
+                <td className="td">{item.fechaoperacion}</td>
+                <td className="td">{mayusculas(item.tipooperacion)}</td>
+                <td className="tdValor"> {formatCurrency(parseInt(item.monto))}</td>
             </tr>
         )
     })
@@ -94,23 +94,23 @@ const DetalleMes = () => {
         </div>
 
         <div className="contentDetailMonth">
-            <div><strong>NIC:</strong>{filtroAlerta[0].nic}</div>
-            <div><h3>Cuenta: </h3><p> {filtroAlerta[0].cuenta}</p></div>
-            <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
-            <div><h3>Objeto:</h3><p>{mayusculas(filtroAlerta[0].objetocuenta)}</p></div>
-            <div><h3>Antigüedad:</h3><p>{filtroAlerta[0].antiguedad}</p></div>
-            <div><h3>Monto Declarado:</h3><p> {formatCurrency(filtroAlerta[0].montodeclarado)}</p></div>
-            <div><h3>Límite:</h3><p> {formatCurrency(filtroAlerta[0].limiteMonto__1)}</p></div>
+            <div><h3>NIC:</h3><p className="divp">{filtroAlerta[0].nic}</p></div>
+            <div><h3>Cuenta: </h3><p className="divp"> {filtroAlerta[0].cuenta}</p></div>
+            <div><h3>Razón Social:</h3><p className="divp">xxxxxxxxxxxx</p></div>
+            <div><h3>Objeto:</h3><p className="divp">{mayusculas(filtroAlerta[0].objetocuenta)}</p></div>
+            <div><h3>Antigüedad:</h3><p className="divp">{filtroAlerta[0].antiguedad} Meses</p></div>
+            <div><h3>Monto Declarado:</h3><p className="divp"> {formatCurrency(filtroAlerta[0].montodeclarado)}</p></div>
+            <div><h3>Límite:</h3><p className="divp"> {formatCurrency(filtroAlerta[0].limiteMonto__1)}</p></div>
         </div>
 
         <div className="tableDetailMonth">
-            <h2>Historial</h2>
+            <h2 className="historialmes">Historial</h2>
             <table className="history">
                 <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Operación</th>
-                        <th>Monto</th>
+                    <tr className="tr">
+                        <th className="th">Fecha</th>
+                        <th className="th">Operación</th>
+                        <th className="th">Monto</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -118,9 +118,9 @@ const DetalleMes = () => {
                 </tbody>
             </table>
         </div>
-        <div>
-            <p>Monto total depositos: {formatCurrency(resultDeposito(resultFilter))}</p>
-            <p>Monto total Retiros: {formatCurrency(resultRetiro(resultFilter))}</p>
+        <div className="detallemontomes">
+            <p className="pdetallemontomes">Monto total depositos: {formatCurrency(resultDeposito(resultFilter))}</p>
+            <p className="pdetallemontomes">Monto total Retiros: {formatCurrency(resultRetiro(resultFilter))}</p>
         </div>
     </div>
     );
