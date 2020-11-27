@@ -1,6 +1,89 @@
 import { Link } from "react-router-dom";
+import dataAlert from "../Data/alertas.json";
 
-const TablaAlertas = () => {
+
+const TablaAlertas = (props) => {
+
+    const funcionFiltros = (detalleAlerta) => {
+        //console.log(detalleAlerta);
+        //console.log("filtro individual", props.filtros.descripcionAlerta);
+        let booleano = true;
+        if(props.filtros.descripcionAlerta && props.filtros.descripcionAlerta !== "value0"){
+            if (detalleAlerta.iddescripcion === parseInt(props.filtros.descripcionAlerta)) {
+                console.log("si pasa filtro");
+                booleano = booleano && true;
+            }else{
+                booleano = false
+            }
+        }
+    
+        if(props.filtros.evaluacion && props.filtros.evaluacion !== "value0"){
+            if (detalleAlerta.idevaluacion === parseInt(props.filtros.evaluacion)) {
+                booleano = booleano && true;
+            }else{
+                booleano = false
+            }
+        }
+    
+        if(props.filtros.mesoperacion && props.filtros.mesoperacion !== "value0"){
+            if (detalleAlerta.mesoperacion.toString() === props.filtros.mesoperacion) {
+                booleano = booleano && true;
+            }else{
+                booleano = false
+            }
+        }
+    
+        if(props.filtros.aniooperacion && props.filtros.aniooperacion !== "value0"){
+            if (detalleAlerta.aniooperacion === parseInt(props.filtros.aniooperacion)) {
+                booleano = booleano && true;
+            }else{
+                booleano = false
+            }
+        }
+            
+        if(props.filtros.objetocuenta && props.filtros.objetocuenta !== "value0"){
+            if (detalleAlerta.idobjetocuenta === parseInt(props.filtros.objetocuenta)) {
+                booleano = booleano && true;
+            }else{
+                booleano = false
+            }
+        }
+            
+        if(props.filtros.cuenta && props.filtros.cuenta !== "value0"){
+            if (detalleAlerta.cuenta === parseInt(props.filtros.cuenta)) {
+                booleano = booleano && true;
+            }else{
+                booleano = false
+            }
+        }
+
+    return booleano;
+    }
+        
+    const filtradoAlertas = dataAlert.filter(detalleAlerta => funcionFiltros(detalleAlerta));
+    console.log("filtro desde alert", props.filtros);
+
+
+
+    let alertMap = <tr><td colSpan="4">Coincidencias de busqueda no encontradas</td></tr>
+    
+    if(filtradoAlertas.length > 0){
+        alertMap = filtradoAlertas.map((item, idx)=>{
+            return (
+                <tr key={idx}>
+                    <td>{item.evaluacion}</td>
+                    <td>{item.idalerta}</td>
+                    <td>{item.cuenta}</td>
+                    <td>{item.descripcionAlerta}</td>
+                    <td><Link to= "/detallealerta">
+                    <button>+</button>
+                        </Link></td>
+                </tr>
+            )
+        });
+    }
+    
+
     return( 
         <div>
         <h2>Alertas</h2>
@@ -14,24 +97,7 @@ const TablaAlertas = () => {
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Falso Positivo</td>
-                <td>55198</td>
-                <td>358347</td>
-                <td>Monto Rebasado</td>
-                <td><Link to= "/detallemes">
-                <button>+</button>
-                    </Link></td>
-            </tr>
-            <tr>
-                <td>Alerta Real</td>
-                <td>55203</td>
-                <td>375672</td>
-                <td>Monto Rebasado</td>
-                <td><Link to= "/detallemes">
-                <button>+</button>
-                    </Link></td>
-            </tr>
+            {alertMap}
             </tbody>
         </table>
             </div>

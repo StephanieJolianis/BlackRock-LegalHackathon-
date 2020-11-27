@@ -1,18 +1,12 @@
 import dataBlackRock from "../Data/datablackrock.json";
 import { Link } from "react-router-dom";
 
-//inicio import material
-import { makeStyles } from '@material-ui/core/styles';
-//fin import material
-
 const DetalleMes = () => {
 
     const data = dataBlackRock;
 
     const propscuenta = 305235;
-    const propsfechaoperacion= "2020-10";
-
-
+    const propsfechaoperacion = "2020-10";
 
     //-------------------FUNCIÓN MANEJO MAYÚSCULAS STRINGS--------------------------------->
     const mayusculas = (frase) => {
@@ -89,64 +83,60 @@ const DetalleMes = () => {
 
     //------------------------------------------------------------------------------>
 
-    //inicio objeto css
-    const useStyle = makeStyles({
-        headerDetailMonth: {
-            background: "white",
-            textAlign: "center",
-            border: 0,
-            borderRadius: 3,
-            fontFamily: "Roboto",
-            fontSize: "20px",
-            color: "black",
-            padding: "0 30px",
-        },
-        contentDetailMonth: {
-            background: "#FFCE00",
-            border: 0,
-            borderRadius: 3,
-            fontFamily: "Roboto",
-            fontSize: "14px",
-            color: "black",
-            padding: "0 30px",
-        },
-        tableDetailMonth: {
-            background: "white",
-            textAlign: "justify",
-            border: 0,
-            borderRadius: 3,
-            fontFamily: "Roboto",
-            fontSize: "14px",
-            color: "black",
-            padding: "0 30px",
-        },
-    })
-    //fin objeto css
+    return (
+        <div>
+            <div className="headerDetailMonth">
+                <Link to="/detallealerta">
+                    <button>Regresar</button>
+                </Link>
+                <Link to="/">
+                    <button>Logout</button>
+                </Link>
+                <h1>BlackRock</h1>
+            </div>
 
-    //inicio hooks de estilos
-    const classes = useStyle();
-    //fin hooks de estilos
+            <div className="contentDetailMonth">
+                <div><h3>NIC:</h3><p>{resultFilter[0].nic}</p></div>
+                <div><h3>Cuenta:</h3><p>{resultFilter[0].cuenta}</p></div>
+                <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
+                <div><h3>Objeto:</h3><p>{mayusculas(resultFilter[0].objetocuenta)}</p></div>
+                <div><h3>Antigüedad:</h3><p>{antiguedad(resultFilter)}</p></div>
+                <div><h3>Monto Declarado:</h3><p>${resultFilter[0].montodeclarado}</p></div>
+                <div><h3>Límite:</h3></div>
+            </div>
 
-    return( 
-    <div>
-        <div className={classes.headerDetailMonth}>
-            <Link to= "/detallealerta">
-                <button>Regresar</button>
-            </Link>
-        <h1>BlackRock</h1>
-        </div>
+            <div className="tableDetailMonth">
+                <h2>Historial</h2>
+                <table className="history">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Operación</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {dataTable}
+                    </tbody>
+                </table>
+            </div>
 
-        <div className={classes.contentDetailMonth}>
-            <div><strong>NIC:</strong>{resultFilter[0].nic}</div>
-            <div><h3>Cuenta: </h3><p> {resultFilter[0].cuenta}</p></div>
-            <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
-            <div><h3>Objeto:</h3><p>{mayusculas(resultFilter[0].objetocuenta)}</p></div>
-            <div><h3>Antigüedad:</h3><p>{antiguedad(resultFilter)}</p></div>
-            <div><h3>Monto Declarado:</h3><p>$ {resultFilter[0].montodeclarado}</p></div>
-            <div><h3>Límite:</h3></div>
-        </div>
-
-        <div className={classes.tableDetailMonth}>
+            <div>
+                <p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
+                <Link to="/">
+                    <button>Logout</button>
+                </Link>
+                <h1>BlackRock</h1>
+            </div>
+            <div className="contentDetailMonth">
+                <div><h3>NIC:</h3><p>{resultFilter[0].nic}</p></div>
+                <div><h3>Cuenta:</h3> <p>{resultFilter[0].cuenta}</p></div>
+                <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
+                <div><h3>Objeto:</h3><p>{mayusculas(resultFilter[0].objetocuenta)}</p></div>
+                <div><h3>Antigüedad:</h3><p>{antiguedad(resultFilter)}</p></div>
+                <div><h3>Monto Declarado:</h3><p>$ {resultFilter[0].montodeclarado}</p></div>
+                <div><h3>Límite:</h3></div>
+            </div>
             <h2>Historial</h2>
             <table className="history">
                 <thead>
@@ -160,42 +150,12 @@ const DetalleMes = () => {
                     {dataTable}
                 </tbody>
             </table>
-        </div>
+            <div>
+                <p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
+                <p>Monto total Retiros: $ {resultRetiro(resultFilter)}</p>
+            </div>
 
-        <div>
-        <p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
-            <Link to= "/">
-                <button>Logout</button>
-            </Link>
-    <h1>BlackRock</h1>
-    </div>
-    <div className="contentDetailMonth">
-        <div><h3>NIC:</h3><p>{resultFilter[0].nic}</p></div>
-        <div><h3>Cuenta:</h3> <p>{resultFilter[0].cuenta}</p></div>
-        <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
-        <div><h3>Objeto:</h3><p>{mayusculas(resultFilter[0].objetocuenta)}</p></div>
-        <div><h3>Antigüedad:</h3><p>{antiguedad(resultFilter)}</p></div>
-        <div><h3>Monto Declarado:</h3><p>$ {resultFilter[0].montodeclarado}</p></div>
-        <div><h3>Límite:</h3></div>
-    </div>
-        <h2>Historial</h2>
-        <table className="history">
-            <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Operación</th>
-                <th>Monto</th>
-            </tr>
-            </thead>
-            <tbody>
-            {dataTable}
-            </tbody>
-        </table>
-    <div><p>Monto total depositos: $ {resultDeposito(resultFilter)}</p>
-        <p>Monto total Retiros: $ {resultRetiro(resultFilter)}</p>
         </div>
-        
-    </div>
     );
 }
 

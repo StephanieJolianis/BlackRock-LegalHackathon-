@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import ModalLimite from "./ModalLimite";
+import ModalAlerta from "./ModalAlerta";
 
 const DetalleAlerta = () => {
+    const [showLimit, setShowLimit] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+    const [alert, setAlert] = useState(false);
+
     return( 
     <div>
-        <div>
+        <div className="alertDetailHeader">
             <Link to= "/main">
                 <button>Regresar</button>
             </Link>
@@ -12,7 +19,9 @@ const DetalleAlerta = () => {
             </Link>
     <h1>BlackRock</h1>
     </div>
-    <div className="contentDetailAlert">
+
+
+    <div className="alertDetailBanner">
         <div><h3>ID Alerta:</h3><p>55198</p></div>
         <div><h3>NIC</h3> <p>5454554</p></div>
         <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
@@ -57,14 +66,17 @@ const DetalleAlerta = () => {
                     <th>Límite</th>
                     <td>$200000</td>
                     <td>2x</td>
+                    <td><button onClick={() => setShowLimit(true)}>Editar</button></td>
                 </tr>
             </tbody>
         </table>
     <div>
         <input type="search" placeholder="Indica el análisis de la alerta"/>
-        <button>Alerta Real</button>
-        <button>Falso Positivo</button>
+        <button onClick={() =>{setShowAlert(true); setAlert(true);}}>Alerta Real</button>
+        <button onClick={() =>{setShowAlert(true); setAlert(false);}}>Falso Positivo</button>
         </div>
+        <ModalAlerta show={showAlert} close={setShowAlert} alert={alert}/>
+        <ModalLimite show={showLimit} close={setShowLimit}/>
     </div>
     );
 }
