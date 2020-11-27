@@ -3,6 +3,7 @@ import TablaAlertas from "./TablaAlertas";
 import Gráfica from "./Gráfica";
 import { Link } from "react-router-dom";
 import { useReducer, useEffect, useState } from "react";
+// import logoApp from '../img/alerta.png';
 
 
 function reducer(state, action) {
@@ -62,7 +63,10 @@ const Main = () => {
             <Link to= "/">
                 <button>Logout</button>
             </Link>
-    <h1>BlackRock </h1>
+            <div className="logoBlackrock">
+            {/* <img src ={logoApp} alt="30" height="57"/> */}
+            <h1>BlackRock </h1>
+            </div>
         </div>
             <p>Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
             <Filtros  cambioFiltros={setFiltros} />

@@ -39,13 +39,16 @@
 
 const Filtros = (props) => {
     return( 
-        <div>
-
+        <div className="divFiltros">
+        <div className="divFiltro1">
             <select onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})} name="descripcionAlerta">
             <option value="value0"defaultValue>Tipo Alerta</option>
             <option value="1">Monto Depósito Rebasado</option> 
             <option value="2">Monto Retiro Rebasado</option>
+            <option value="3">Numero de retiros rebasado</option>
+            <option value="4">Numero de depositos rebasado</option>
             </select>
+            
 
             <select onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})} name="evaluacion">
             <option value="value0"defaultValue>Status Alarma</option>
@@ -53,7 +56,9 @@ const Filtros = (props) => {
             <option value="1">Falso Positivo</option>
             <option value="0">No Investigado</option>
             </select>
+            </div>
 
+            <div className="divFiltro2">
             <select onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})} name="mesoperacion">
             <option value="value0"defaultValue>Mes</option>
             <option value="01">Enero</option> 
@@ -75,7 +80,10 @@ const Filtros = (props) => {
             <option value="2019">2019</option> 
             <option value="2020">2020</option>
             </select>
+            </div>
 
+
+            <div className="divFiltro3">
             <select onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})} name="objetocuenta">
             <option value="value0"defaultValue>Objeto Cuenta</option>
             <option value="1">Administración de Tesorería</option> 
@@ -87,7 +95,8 @@ const Filtros = (props) => {
             <option value="7">Plan de pensiones</option>
         </select>
 
-        <div><input name="cuenta" type="search" placeholder="Buscar por número de cuenta" onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})}/></div>
+        <div><input className="inputFiltros" name="cuenta" type="search" placeholder="Buscar por número de cuenta" onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})}/></div>
+        </div>
             </div>
     );
 }
