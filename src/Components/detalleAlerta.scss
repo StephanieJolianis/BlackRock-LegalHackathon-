@@ -90,6 +90,30 @@ $content-font : Roboto;
 
 }
 
+.alertaFinalizada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $black;
+    color: $white;
+    font-family: $content-font;
+    font-size: 14px;
+    height: 70px;
+    margin: auto;
+
+
+    
+
+    h2 {
+
+        text-align: center;
+        height: fit-content;
+        
+        
+    }
+
+}
+
 
 
 
