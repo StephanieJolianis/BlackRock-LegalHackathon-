@@ -3,7 +3,7 @@ const ModalLimite = (props) => {
     const DivModal = props.show && ( 
         <div className="overlay">
             <div className="popup">
-            <button onClick={()=> props.close(false)}>x</button>
+            <button className = 'closeButton' onClick={()=> props.close(false)}>x</button>
                 <p className = 'modalText'>El limite del cliente identificado: </p>
                 <p className = 'modalText'>será actualizado a:</p>
                 <select name="selectLimite" onChange={(e)=> selectedLimit = e.target.value}>
@@ -16,7 +16,7 @@ const ModalLimite = (props) => {
                 <option value="7">7x</option>
                 </select>
                 <br/>
-                    <button onClick={()=> {
+                    <button className = 'acceptButton' onClick={()=> {
                         props.setLimit(selectedLimit);
                         props.close(false);
                     }}>Aceptar</button>
