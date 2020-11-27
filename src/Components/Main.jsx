@@ -48,8 +48,8 @@ const Main = () => {
     const initialState = {
         descripcionAlerta: "value0",
         evaluacion: "value0",
-        mesoperacion: "value0",
-        aniooperacion:"value0",
+        mesoperacion: "10",
+        aniooperacion:"2020",
         objetocuenta:"value0",
         cuenta:"value0"
     };
@@ -72,6 +72,6 @@ const Main = () => {
             <Gráfica/>
             </div>
     );
-}
+};
 
 export default Main;

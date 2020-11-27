@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import dataAlerta from "../Data/alertas.json";
 import { useParams } from "react-router-dom";
 
-//inicio import material
-import { makeStyles } from '@material-ui/core/styles';
-//fin import material
-
 const DetalleMes = () => {
     const { id } = useParams();
     const data = dataBlackRock;
@@ -82,50 +78,9 @@ const DetalleMes = () => {
         return acumm;
     }
 
-
-    //------------------------------------------------------------------------------>
-
-    //inicio objeto css
-    const useStyle = makeStyles({
-        headerDetailMonth: {
-            background: "white",
-            textAlign: "center",
-            border: 0,
-            borderRadius: 3,
-            fontFamily: "Roboto",
-            fontSize: "20px",
-            color: "black",
-            padding: "0 30px",
-        },
-        contentDetailMonth: {
-            background: "#FFCE00",
-            border: 0,
-            borderRadius: 3,
-            fontFamily: "Roboto",
-            fontSize: "14px",
-            color: "black",
-            padding: "0 30px",
-        },
-        tableDetailMonth: {
-            background: "white",
-            textAlign: "justify",
-            border: 0,
-            borderRadius: 3,
-            fontFamily: "Roboto",
-            fontSize: "14px",
-            color: "black",
-            padding: "0 30px",
-        },
-    })
-    //fin objeto css
-
-    //inicio hooks de estilos
-    const classes = useStyle();
-    //fin hooks de estilos
-
     return( 
     <div>
-        <div className={classes.headerDetailMonth}>
+        <div className="headerDetailMonth">
             <Link to= {"/alerta/"+id+"/detalle"}>
                 <button>Regresar</button>
             </Link>
@@ -135,7 +90,7 @@ const DetalleMes = () => {
         <h1>BlackRock</h1>
         </div>
 
-        <div className={classes.contentDetailMonth}>
+        <div className="contentDetailMonth">
             <div><strong>NIC:</strong>{filtroAlerta[0].nic}</div>
             <div><h3>Cuenta: </h3><p> {filtroAlerta[0].cuenta}</p></div>
             <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>
@@ -145,7 +100,7 @@ const DetalleMes = () => {
             <div><h3>Límite:</h3><p> {formatCurrency(filtroAlerta[0].limiteMonto__1)}</p></div>
         </div>
 
-        <div className={classes.tableDetailMonth}>
+        <div className="tableDetailMonth">
             <h2>Historial</h2>
             <table className="history">
                 <thead>
