@@ -12,8 +12,8 @@ function App() {
       <Switch> 
       <Route path="/" exact component={Login} /> 
       <Route path="/main" exact component={Main} /> 
-      <Route path="/detallealerta" exact component={DetalleAlerta} /> 
-      <Route path="/detallemes" exact component={DetalleMes} />
+      <Route path="/alerta/:id/detalle" exact component={DetalleAlerta} /> 
+      <Route path="/alerta/:id/detallemes" exact component={DetalleMes} /> 
       </Switch>
     </Router>
   );

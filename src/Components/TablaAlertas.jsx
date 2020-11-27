@@ -61,8 +61,6 @@ const TablaAlertas = (props) => {
     }
         
     const filtradoAlertas = dataAlert.filter(detalleAlerta => funcionFiltros(detalleAlerta));
-    console.log("filtro desde alert", props.filtros);
-
 
 
     let alertMap = <tr><td colSpan="4">Coincidencias de busqueda no encontradas</td></tr>
@@ -75,7 +73,7 @@ const TablaAlertas = (props) => {
                     <td>{item.idalerta}</td>
                     <td>{item.cuenta}</td>
                     <td>{item.descripcionAlerta}</td>
-                    <td><Link to= "/detallealerta">
+                    <td><Link to= {"/alerta/"+ item.idalerta +"/detalle"}>
                     <button>+</button>
                         </Link></td>
                 </tr>
@@ -94,6 +92,7 @@ const TablaAlertas = (props) => {
                 <th>ID Alerta</th>
                 <th>Cuenta</th>
                 <th>Descripción</th>
+                <th>...</th>
             </tr>
             </thead>
             <tbody>
