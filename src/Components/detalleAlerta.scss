@@ -1,6 +1,8 @@
 $black : #000000;
 $yellow : #FFCE00;
 $white: #FFFF;
+$orange: #FF4713;
+
 $content-font : Roboto;
 
 *{
@@ -19,7 +21,7 @@ $content-font : Roboto;
 .textLine {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     height: 30px;
     
 
@@ -67,7 +69,7 @@ table {
     border-color: gray;
     font-family: $content-font;
     font-size: 12px;
-    margin: auto;
+    margin: 20px auto;
 
     
     
@@ -89,32 +91,93 @@ th, td {
       width: 200px;
   }
 
+  th {
+      background-color: $black;
+      color: $white;
+  }
+
 
   .fila {
       display: flex;
       flex-direction: row;
-      justify-content: start;
+      justify-content: space-between;
       height: 30px;
+      margin: auto;
       
 
       
 
       p {
-          margin: auto;
+          margin: auto 0;
 
       }
 
       .buttonLimite {
-        margin: auto;
-        height: 20px;
+        margin: auto 0;
+        border: none;
+        background-color: $white;
+        
+        height: 100%;
+        font-weight: 500;
+        
+        
 
       }
 
-      .buttonDetails {
-        margin: auto;
-        height: 20px;
+      link {
+        margin: auto; 
         
+                
+      }
+
+      .buttonDetails {
+          border: none;
+          background-color: $white;
+          margin: auto; 
+          height: 100%;
+          font-weight: 500;
+          font-size: 18px;
+
       }
   }
 
 
+  .evaluationContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 200px;
+      
+
+      input {
+          height: 100px;
+          font-family: $content-font;
+      }
+
+      .evaluationButtons {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+        button {
+            height: 50px;
+            width: 100px;
+            margin: 0 10px;
+            font-family: $content-font;
+        }
+
+        .alertaReal {
+            color: $white;
+            background-color: $orange;
+            border: none;
+        }
+
+        .falsoPositivo {
+            border: 3px solid $orange;
+            background-color: $white;
+
+        }
+      }
+
+
+  }

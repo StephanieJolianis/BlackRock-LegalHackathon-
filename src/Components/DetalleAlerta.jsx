@@ -68,16 +68,18 @@ const DetalleAlerta = () => {
                 </tr>
                 <tr>
                     <th>Límite</th>
-                    <td className = 'fila' >$200000<p>2x</p><button className = 'buttonLimite' onClick={() => setShowLimit(true)}>Editar</button></td>
+                    <td className = 'fila' > <p> $200000</p><p>2x</p><button className = 'buttonLimite' onClick={() => setShowLimit(true)}>Editar</button></td>
                     
                     
                 </tr>
             </tbody>
         </table>
-    <div>
+    <div className = 'evaluationContainer' >
         <input type="search" placeholder="Indica el análisis de la alerta"/>
-        <button onClick={() =>{setShowAlert(true); setAlert(true);}}>Alerta Real</button>
-        <button onClick={() =>{setShowAlert(true); setAlert(false);}}>Falso Positivo</button>
+        <div className = 'evaluationButtons' >
+        <button className = 'alertaReal'  onClick={() =>{setShowAlert(true); setAlert(true);}}>Alerta Real</button>
+        <button className = 'falsoPositivo' onClick={() =>{setShowAlert(true); setAlert(false);}}>Falso Positivo</button>
+        </div>
         </div>
         <ModalAlerta show={showAlert} close={setShowAlert} alert={alert}/>
         <ModalLimite show={showLimit} close={setShowLimit}/>
