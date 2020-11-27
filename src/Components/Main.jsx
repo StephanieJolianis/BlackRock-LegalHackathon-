@@ -32,7 +32,6 @@ function reducer(state, action) {
         default:
             break;
     }
-    console.log("el hpta estado ahora si cambia",state);
     return {
         descripcionAlerta: state.descripcionAlerta,
         evaluacion: state.evaluacion,
@@ -55,7 +54,6 @@ const Main = () => {
         cuenta:"value0"
     };
 
-    //const [filtros, setFiltros]= useState({});
     const [filtros, setFiltros] = useReducer(reducer, initialState);
     return( 
         <div>

@@ -56,7 +56,7 @@ const Filtros = (props) => {
             <option value="1">Falso Positivo</option>
             <option value="0">No Investigado</option>
             </select>
-            </div>
+        </div>
 
             <div className="divFiltro2">
             <select onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})} name="mesoperacion">
