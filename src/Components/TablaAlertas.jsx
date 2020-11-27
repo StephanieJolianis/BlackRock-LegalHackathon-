@@ -3,6 +3,7 @@ import dataAlert from "../Data/alertas.json";
 import falsoPositivo from "../img/falsopositivo.png";
 import alertaReal from "../img/alertareal.png";
 import sinEvaluar from "../img/sinevaluar.png";
+import imgMas from "../img/mas.png"
 
 
 const TablaAlertas = (props) => {
@@ -66,7 +67,7 @@ const TablaAlertas = (props) => {
     const filtradoAlertas = dataAlert.filter(detalleAlerta => funcionFiltros(detalleAlerta));
 
 
-    let alertMap = <tr><td colSpan="4">Coincidencias de busqueda no encontradas</td></tr>
+    let alertMap = <tr><td colSpan="5" className="noCoincidencias">Coincidencias de busqueda no encontradas</td></tr>
 
     const estiloAlertaEvaluada = (item) =>{
         let estilo = <img src ={sinEvaluar} alt=""/>
@@ -82,13 +83,13 @@ const TablaAlertas = (props) => {
     if(filtradoAlertas.length > 0){
         alertMap = filtradoAlertas.map((item, idx)=>{
             return (
-                <tr key={idx}>
-                    <td>{estiloAlertaEvaluada(item.evaluacion)}</td>
-                    <td>{item.idalerta}</td>
-                    <td>{item.cuenta}</td>
-                    <td>{item.descripcionAlerta}</td>
-                    <td><Link to= {"/alerta/"+ item.idalerta +"/detalle"}>
-                    <button>+</button>
+                <tr className="tr" key={idx}>
+                    <td className="td">{estiloAlertaEvaluada(item.evaluacion)}</td>
+                    <td className="td">{item.idalerta}</td>
+                    <td className="td">{item.cuenta}</td>
+                    <td className="td">{item.descripcionAlerta}</td>
+                    <td className="td"><Link to= {"/alerta/"+ item.idalerta +"/detalle"}>
+                    <img src ={imgMas} alt=""/>
                         </Link></td>
                 </tr>
             )
@@ -98,15 +99,15 @@ const TablaAlertas = (props) => {
 
     return( 
         <div>
-        <h2>Alertas</h2>
+        <h2 className="historialmes">Alertas</h2>
         <table className="historyAlert">
             <thead>
-            <tr>
-                <th>Status</th>
-                <th>ID Alerta</th>
-                <th>Cuenta</th>
-                <th>Descripción</th>
-                <th>...</th>
+            <tr className="tr">
+                <th className="th">Status</th>
+                <th className="th">ID Alerta</th>
+                <th className="th">Cuenta</th>
+                <th className="th">Descripción</th>
+                <th className="th">...</th>
             </tr>
             </thead>
             <tbody>

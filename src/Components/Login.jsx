@@ -27,7 +27,6 @@ const Login = () => {
             return true;
         }
         setstatusForm(false);
-        console.log("estado",statusForm);
         return false;
     }
 
@@ -102,7 +101,7 @@ const Login = () => {
                     </form>
                 </Grid>
             </Grid>
-            {!statusForm && (<div><p>Credenciales invalidas por favor verifique</p></div>)}
+            {!statusForm && (<div><p className="pAlertaLogin">Credenciales invalidas por favor verifique</p></div>)}
         </div>
     );
 };

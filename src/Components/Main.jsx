@@ -66,7 +66,7 @@ const Main = () => {
             <h1>BlackRock </h1>
             </div>
         </div>
-            <p>Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
+            <p className="bienvenida">Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
             <Filtros  cambioFiltros={setFiltros} />
             <TablaAlertas filtros={filtros}/>
             <ChartRock/>
