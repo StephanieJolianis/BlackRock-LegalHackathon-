@@ -3,6 +3,7 @@ import TablaAlertas from "./TablaAlertas";
 import ChartRock from "./ChartRock";
 import { Link } from "react-router-dom";
 import { useReducer, useEffect, useState } from "react";
+// import logoApp from '../img/alerta.png';
 
 
 function reducer(state, action) {
@@ -31,7 +32,6 @@ function reducer(state, action) {
         default:
             break;
     }
-    console.log("el hpta estado ahora si cambia",state);
     return {
         descripcionAlerta: state.descripcionAlerta,
         evaluacion: state.evaluacion,
@@ -48,13 +48,12 @@ const Main = () => {
     const initialState = {
         descripcionAlerta: "value0",
         evaluacion: "value0",
-        mesoperacion: "value0",
-        aniooperacion:"value0",
+        mesoperacion: "10",
+        aniooperacion:"2020",
         objetocuenta:"value0",
         cuenta:"value0"
     };
 
-    //const [filtros, setFiltros]= useState({});
     const [filtros, setFiltros] = useReducer(reducer, initialState);
     return( 
         <div>
@@ -62,7 +61,10 @@ const Main = () => {
             <Link to= "/">
                 <button>Logout</button>
             </Link>
-    <h1>BlackRock </h1>
+            <div className="logoBlackrock">
+            {/* <img src ={logoApp} alt="30" height="57"/> */}
+            <h1>BlackRock </h1>
+            </div>
         </div>
             <p>Bienvenid@ {localStorage.getItem("nombredeusuario")}</p>
             <Filtros  cambioFiltros={setFiltros} />
@@ -70,6 +72,6 @@ const Main = () => {
             <ChartRock/>
             </div>
     );
-}
+};
 
 export default Main;
