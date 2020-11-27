@@ -10,7 +10,7 @@ const DetalleAlerta = () => {
 
     return( 
     <div>
-        <div>
+        <div className="alertDetailHeader">
             <Link to= "/main">
                 <button>Regresar</button>
             </Link>
@@ -19,7 +19,9 @@ const DetalleAlerta = () => {
             </Link>
     <h1>BlackRock</h1>
     </div>
-    <div className="contentDetailAlert">
+
+
+    <div className="alertDetailBanner">
         <div><h3>ID Alerta:</h3><p>55198</p></div>
         <div><h3>NIC</h3> <p>5454554</p></div>
         <div><h3>Razón Social:</h3><p>xxxxxxxxxxxx</p></div>

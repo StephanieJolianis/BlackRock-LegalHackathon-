@@ -70,6 +70,6 @@ const Main = () => {
             <Gráfica/>
             </div>
     );
-}
+};
 
 export default Main;

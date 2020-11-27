@@ -1,42 +1,3 @@
-// const objFiltros = {
-//     descripcionAlerta: "value0",
-//     evaluacion: "value0",
-//     mesoperacion: "value0",
-//     aniooperacion:"value0",
-//     objetocuenta:"value0",
-//     cuenta:"value0"
-// }
-
-
-// const valorFiltro = (e) => {
-//     const filtroValor = e.target.value;
-//     const nombreFiltro = e.target.name;
-//     switch (nombreFiltro) {
-//         case "descripcionAlerta":
-//             objFiltros.descripcionAlerta = filtroValor;
-//             break;
-//             case "evaluacion":
-//             objFiltros.evaluacion = filtroValor
-//             break;
-//             case "mesoperacion":
-//             objFiltros.mesoperacion = filtroValor
-//             break;
-//             case "aniooperacion":
-//             objFiltros.aniooperacion = filtroValor
-//             break;
-//             case "objetocuenta":
-//             objFiltros.objetocuenta = filtroValor
-//             break;
-//             case "cuenta":
-//             objFiltros.cuenta = filtroValor
-//             break;
-//         default:
-//             break;
-//     }
-//     return objFiltros;
-// }
-
-
 const Filtros = (props) => {
     return( 
         <div>
@@ -89,6 +50,8 @@ const Filtros = (props) => {
 
         <div><input name="cuenta" type="search" placeholder="Buscar por número de cuenta" onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})}/></div>
             </div>
+</div>
+
     );
 }
 
