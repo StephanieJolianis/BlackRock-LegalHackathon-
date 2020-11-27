@@ -50,8 +50,6 @@ const Filtros = (props) => {
 
         <div><input name="cuenta" type="search" placeholder="Buscar por número de cuenta" onChange={(e)=> props.cambioFiltros({value:e.target.value, name:e.target.name})}/></div>
             </div>
-</div>
-
     );
 }
 
