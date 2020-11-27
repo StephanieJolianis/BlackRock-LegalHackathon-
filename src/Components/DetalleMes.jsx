@@ -4,7 +4,9 @@ import dataAlerta from "../Data/alertas.json";
 import { useParams } from "react-router-dom";
 
 //import data from '../Data/data.json';
-
+import alertaLogo from '../img/alerta.png'
+import salir from '../img/salir.png'
+import atras from '../img/atras.png'
 
 const DetalleMes = () => {
     const { id } = useParams();
@@ -83,14 +85,19 @@ const DetalleMes = () => {
 
     return( 
     <div>
-        <div className="headerDetailMonth">
-            <Link to= {"/alerta/"+id+"/detalle"}>
-                <button>Regresar</button>
+        <div className="alertDetailHeader">
+            <div className = 'headerButtons' >
+            <Link to= "/main">
+                <img src= {atras} ></img>
             </Link>
             <Link to= "/">
-                <button>Logout</button>
+                <img src = {salir}  ></img>
             </Link>
-        <h1>BlackRock</h1>
+            </div>
+            <div className = 'blackrockLogo'>
+                <img className = 'alarmaIMG' src = {alertaLogo}></img>
+                <h1>BlackRock</h1>
+            </div>
         </div>
 
         <div className="contentDetailMonth">

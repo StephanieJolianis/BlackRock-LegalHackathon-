@@ -25,21 +25,13 @@ const calcularDias = (algo) => {
     const fechaActual = Date.now();
     const diff =  fechaAlertaMiliseg - fechaActual;
     const result = Math.round(diff/(1000 * 60 * 60 * 24 ));
-<<<<<<< HEAD
-    if(result > 0 && algo.evaluacion===''){ 
-        return (<div className='regresiveCount' style={ result>5 ? { backgroundColor: "#05B135" } : { backgroundColor: "#F20606" } }>
-            <h3>Esta alerta expira en:</h3> 
-            <h1>{result} días</h1> </div>) }else{ 
-                return ( <div className='alertaFinalizada'> 
-                <h2>Estudio de alerta finalizado</h2> </div>) } 
-=======
     if(result > 0 && algo.evaluacion===''){
         return (<div className='regresiveCount'
         style={
             result>5
-              ? { backgroundColor: "#05B135" }
-              : { backgroundColor: "#F20606" }
-          }>
+            ? { backgroundColor: "#05B135" }
+            : { backgroundColor: "#F20606" }
+        }>
             <h3>Esta alerta expira en:</h3>
         <h1>{result} días</h1>
         </div>)
@@ -49,7 +41,6 @@ const calcularDias = (algo) => {
             <h2>Estudio de alerta finalizado</h2>
         </div>)
     }
->>>>>>> develop
 }
 
 let mensajeUsuario = "";
@@ -106,10 +97,10 @@ const DetalleAlerta = () => {
                 <img src = {salir}  ></img>
             </Link>
             </div>
-        <div className = 'blackrockLogo'>
-        <img className = 'alarmaIMG' src = {alertaLogo}></img>
-        <h1>BlackRock</h1>
-        </div>
+            <div className = 'blackrockLogo'>
+                <img className = 'alarmaIMG' src = {alertaLogo}></img>
+                <h1>BlackRock</h1>
+            </div>
         </div>
         <div className="contentDetailAlert">
             <div className="contentDetailAlert">
