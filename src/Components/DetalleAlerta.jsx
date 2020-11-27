@@ -32,26 +32,33 @@ const calcularDias = (algo) => {
     }
 }
 
+let mensajeUsuario = "";
+
 //-------------------FUNCIÓN FORMATO DE MONEDA EN PESOS MEXICANOS--------------------------------->
 const formatCurrency = (number) =>{
     return number.toLocaleString('es-MX', {currency: 'MXN', style: 'currency'});
 }
-
-
 
 const alertaValida = (alerta) =>{
     return (alerta.statusAlerta && alerta.statusAlerta == "evaluada");
 }
 
 const updateFromStorage = (alerta) =>{
+    mensajeUsuario = "";
     let evaluaciones = JSON.parse(localStorage.getItem("evaluaciones"));
+    if(!evaluaciones)
+        evaluaciones = [];
     let storage = evaluaciones.filter(ev => ev.id == alerta.idalerta);
     console.log("localstorage",storage);
     if(storage.length > 0){
         alerta.limiteMonto = storage[0].limite;
         alerta.evaluacion = storage[0].evaluacion;
         alerta.statusAlerta = storage[0].estado;
+
+        mensajeUsuario = "Analizada por " + localStorage.getItem("nombredeusuario") + " : " + storage[0].analisis;
     }
+    if(alerta.evaluacion.toLowerCase() === "alerta real")
+    mensajeUsuario = mensajeUsuario + " ENVIADO A MINDS"
     return alerta;
 }
 
@@ -129,7 +136,7 @@ const DetalleAlerta = () => {
                 </tr>
             </tbody>
         </table>
-        {!alertaValida(filtroAlerta[0]) && (       
+    {alertaValida(filtroAlerta[0]) ? <div><p>{mensajeUsuario}</p></div> : (       
         <div> 
         <input type="search" placeholder="Indica el análisis de la alerta" onChange={(e)=> setAnalisis(e.target.value)}/>
         <button onClick={() =>{setShowAlert(true); setAlert(true);}}>Alerta Real</button>

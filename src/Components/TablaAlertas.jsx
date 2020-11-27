@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import dataAlert from "../Data/alertas.json";
+import falsoPositivo from "../img/falsopositivo.png";
+import alertaReal from "../img/alertareal.png";
+import sinEvaluar from "../img/sinevaluar.png";
 
 
 const TablaAlertas = (props) => {
@@ -64,12 +67,23 @@ const TablaAlertas = (props) => {
 
 
     let alertMap = <tr><td colSpan="4">Coincidencias de busqueda no encontradas</td></tr>
+
+    const estiloAlertaEvaluada = (item) =>{
+        let estilo = <img src ={sinEvaluar} alt=""/>
+        if(item.toLowerCase() === "falso positivo"){
+            estilo = <img src ={falsoPositivo} alt=""/>
+        }
+        if (item.toLowerCase() === "alerta real" ){
+            estilo = <img src ={alertaReal} alt=""/>
+        }
+        return estilo;
+    }
     
     if(filtradoAlertas.length > 0){
         alertMap = filtradoAlertas.map((item, idx)=>{
             return (
                 <tr key={idx}>
-                    <td>{item.evaluacion}</td>
+                    <td>{estiloAlertaEvaluada(item.evaluacion)}</td>
                     <td>{item.idalerta}</td>
                     <td>{item.cuenta}</td>
                     <td>{item.descripcionAlerta}</td>
