@@ -29,9 +29,9 @@ const calcularDias = (algo) => {
         return (<div className='regresiveCount'
         style={
             result>5
-              ? { backgroundColor: "#05B135" }
-              : { backgroundColor: "#F20606" }
-          }>
+            ? { backgroundColor: "#05B135" }
+            : { backgroundColor: "#F20606" }
+        }>
             <h3>Esta alerta expira en:</h3>
         <h1>{result} días</h1>
         </div>)
@@ -97,10 +97,10 @@ const DetalleAlerta = () => {
                 <img src = {salir}  ></img>
             </Link>
             </div>
-        <div className = 'blackrockLogo'>
-        <img className = 'alarmaIMG' src = {alertaLogo}></img>
-        <h1>BlackRock</h1>
-        </div>
+            <div className = 'blackrockLogo'>
+                <img className = 'alarmaIMG' src = {alertaLogo}></img>
+                <h1>BlackRock</h1>
+            </div>
         </div>
         <div className="contentDetailAlert">
             <div className="contentDetailAlert">
