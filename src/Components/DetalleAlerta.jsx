@@ -25,17 +25,12 @@ const calcularDias = (algo) => {
     const fechaActual = Date.now();
     const diff =  fechaAlertaMiliseg - fechaActual;
     const result = Math.round(diff/(1000 * 60 * 60 * 24 ));
-    if(result > 0){
-        return (<div className='regresiveCount'>
-            <h3>Esta alerta expira en:</h3>
-        <h1>{result} días</h1>
-        </div>)
-    }else{
-        return (
-            <div>
-            <h2>Estudio de alerta finalizado</h2>
-        </div>)
-    }
+    if(result > 0 && algo.evaluacion===''){ 
+        return (<div className='regresiveCount' style={ result>5 ? { backgroundColor: "#05B135" } : { backgroundColor: "#F20606" } }>
+            <h3>Esta alerta expira en:</h3> 
+            <h1>{result} días</h1> </div>) }else{ 
+                return ( <div className='alertaFinalizada'> 
+                <h2>Estudio de alerta finalizado</h2> </div>) } 
 }
 
 let mensajeUsuario = "";
